@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="theme-color" content="#102c25">
+
 <title>তথ্য সংগ্রহ | হাজী মাহে আলম কমপ্লেক্স</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,9 +20,12 @@
   --ink: #1b2b25;
   --muted: #78877e;
   --border: #e4e9e3;
+  --white: #ffffff;
 }
 
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
@@ -40,6 +44,8 @@ body {
   max-width: 760px;
   margin: auto;
 }
+
+/* Header */
 
 .header {
   position: relative;
@@ -62,8 +68,15 @@ body {
   border-radius: 50%;
 }
 
-.header::before { top: -145px; left: -100px; }
-.header::after { right: -110px; bottom: -155px; }
+.header::before {
+  top: -145px;
+  left: -100px;
+}
+
+.header::after {
+  right: -110px;
+  bottom: -155px;
+}
 
 .logo {
   position: relative;
@@ -101,6 +114,8 @@ body {
   font-size: 14px;
   line-height: 1.9;
 }
+
+/* Form card */
 
 .form-card {
   margin-top: 15px;
@@ -144,6 +159,8 @@ body {
   font-size: 13px;
 }
 
+/* Fields */
+
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -163,7 +180,9 @@ label {
   font-weight: 600;
 }
 
-.required { color: #d34b45; }
+.required {
+  color: #d34b45;
+}
 
 .optional {
   color: #89958d;
@@ -171,7 +190,8 @@ label {
   font-weight: 400;
 }
 
-input, textarea {
+input,
+textarea {
   width: 100%;
   padding: 14px 15px;
   border: 1px solid var(--border);
@@ -184,9 +204,13 @@ input, textarea {
   transition: .25s;
 }
 
-input::placeholder, textarea::placeholder { color: #aab3ac; }
+input::placeholder,
+textarea::placeholder {
+  color: #aab3ac;
+}
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
   border-color: #47866a;
   background: white;
   box-shadow: 0 0 0 4px #47866a15;
@@ -202,6 +226,8 @@ textarea {
   color: #87938a;
   font-size: 12px;
 }
+
+/* Submit */
 
 .submit-btn {
   width: 100%;
@@ -229,6 +255,8 @@ textarea {
   cursor: wait;
   transform: none;
 }
+
+/* Message */
 
 #message {
   display: none;
@@ -269,8 +297,12 @@ textarea {
   letter-spacing: 1px;
 }
 
+/* Responsive */
+
 @media (max-width: 600px) {
-  body { padding: 17px 10px; }
+  body {
+    padding: 17px 10px;
+  }
 
   .header {
     padding: 30px 17px;
@@ -288,15 +320,22 @@ textarea {
     letter-spacing: 2px;
   }
 
-  .header p { font-size: 13px; }
+  .header p {
+    font-size: 13px;
+  }
 
   .form-card {
     padding: 23px 18px;
     border-radius: 8px 8px 21px 21px;
   }
 
-  .form-heading { gap: 12px; }
-  .form-heading h2 { font-size: 22px; }
+  .form-heading {
+    gap: 12px;
+  }
+
+  .form-heading h2 {
+    font-size: 22px;
+  }
 
   .heading-icon {
     width: 45px;
@@ -308,24 +347,41 @@ textarea {
     gap: 0;
   }
 
-  .field { margin-bottom: 15px; }
-  input, textarea { padding: 13px; }
+  .field {
+    margin-bottom: 15px;
+  }
+
+  input,
+  textarea {
+    padding: 13px;
+  }
 }
 
 @media (max-width: 350px) {
-  .form-card { padding: 19px 13px; }
-  .header h1 { font-size: 23px; }
+  .form-card {
+    padding: 19px 13px;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <main class="container">
 
   <header class="header">
     <div class="logo">✦</div>
-    <div class="brand-name">HAZI MAHE ALAM COMPLEX</div>
+
+    <div class="brand-name">
+      HAZI MAHE ALAM COMPLEX
+    </div>
+
     <h1>হাজী মাহে আলম কমপ্লেক্স</h1>
+
     <p>
       পূর্ব চর কোলাকোপা, ৩ নং চর পোড়াগাছা ইউনিয়ন,<br>
       রামগতি, লক্ষ্মীপুর
@@ -333,57 +389,108 @@ textarea {
   </header>
 
   <section class="form-card">
+
     <div class="form-heading">
       <div class="heading-icon">✎</div>
+
       <div>
         <h2>তথ্য সংগ্রহ ফর্ম</h2>
         <p>সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন</p>
       </div>
     </div>
 
-    <form id="infoForm" novalidate>
+    <form id="infoForm">
+
       <div class="grid">
 
         <div class="field">
-          <label for="name">নাম <span class="required">*</span></label>
-          <input type="text" id="name" name="name"
-            required maxlength="120" autocomplete="name"
+          <label for="name">
+            নাম <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            maxlength="120"
+            autocomplete="name"
             placeholder="আপনার পূর্ণ নাম">
         </div>
 
         <div class="field">
-          <label for="fatherName">পিতার নাম <span class="required">*</span></label>
-          <input type="text" id="fatherName" name="fatherName"
-            required maxlength="120"
+          <label for="fatherName">
+            পিতার নাম <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="fatherName"
+            name="fatherName"
+            required
+            maxlength="120"
             placeholder="পিতার পূর্ণ নাম">
         </div>
 
         <div class="field">
-          <label for="houseName">বাড়ির নাম <span class="required">*</span></label>
-          <input type="text" id="houseName" name="houseName"
-            required maxlength="160"
+          <label for="houseName">
+            বাড়ির নাম <span class="required">*</span>
+          </label>
+
+          <input
+            type="text"
+            id="houseName"
+            name="houseName"
+            required
+            maxlength="160"
             placeholder="আপনার বাড়ির নাম">
         </div>
 
         <div class="field">
-          <label for="phone">ফোন নম্বর <span class="required">*</span></label>
-          <input type="tel" id="phone" name="phone"
-            required maxlength="15" inputmode="numeric"
-            pattern="[0-9]{6,15}" autocomplete="tel-national"
+          <label for="phone">
+            ফোন নম্বর <span class="required">*</span>
+          </label>
+
+          <input
+            type="tel"
+            id="phone"
+            name="phone"
+            required
+            maxlength="15"
+            inputmode="numeric"
+            pattern="[0-9]{6,15}"
+            autocomplete="tel-national"
             placeholder="ইংরেজি সংখ্যায় লিখুন">
-          <p class="hint">শুধু ইংরেজি সংখ্যা ব্যবহার করুন।</p>
+
+          <p class="hint">
+            শুধু ইংরেজি সংখ্যা ব্যবহার করুন।
+          </p>
         </div>
+
       </div>
 
       <div class="field">
-        <label for="occupation">পেশা <span class="optional">(ঐচ্ছিক)</span></label>
-        <input type="text" id="occupation" name="occupation"
-          maxlength="100" placeholder="আপনার পেশা">
+        <label for="occupation">
+          পেশা <span class="optional">(ঐচ্ছিক)</span>
+        </label>
+
+        <input
+          type="text"
+          id="occupation"
+          name="occupation"
+          maxlength="100"
+          placeholder="আপনার পেশা">
       </div>
 
       <div class="field">
-        <label for="remark">মন্তব্য <span class="optional">(ঐচ্ছিক)</span></label>
-        <textarea id="remark" name="remark" maxlength="1000"
+        <label for="remark">
+          মন্তব্য <span class="optional">(ঐচ্ছিক)</span>
+        </label>
+
+        <textarea
+          id="remark"
+          name="remark"
+          maxlength="1000"
           placeholder="প্রয়োজনে অতিরিক্ত তথ্য লিখুন"></textarea>
       </div>
 
@@ -392,7 +499,9 @@ textarea {
       </button>
 
       <div id="message" role="status" aria-live="polite"></div>
+
     </form>
+
   </section>
 
   <p class="privacy">
@@ -403,10 +512,15 @@ textarea {
   <footer class="footer">
     HAZI MAHE ALAM COMPLEX · INFORMATION FORM
   </footer>
+
 </main>
 
-<iframe name="submitFrame" id="submitFrame"
-  title="ফর্ম জমা" style="display:none"></iframe>
+<iframe
+  name="submitFrame"
+  id="submitFrame"
+  title="ফর্ম জমা"
+  style="display:none">
+</iframe>
 
 <script>
 const SCRIPT_URL =
@@ -419,14 +533,6 @@ const iframe = document.getElementById("submitFrame");
 
 let waiting = false;
 let timeoutId = null;
-
-const MESSAGES = {
-  success: "✓ আপনার তথ্য সফলভাবে জমা হয়েছে। ধন্যবাদ।",
-  duplicate: "এই নাম ও পিতার নাম দিয়ে ইতোমধ্যে তথ্য জমা দেওয়া হয়েছে।",
-  incomplete: "অনুগ্রহ করে প্রয়োজনীয় সব ঘর সঠিকভাবে পূরণ করুন।",
-  timeout: "সার্ভার থেকে নিশ্চিত উত্তর পাওয়া যায়নি। পুনরায় জমা দেওয়ার আগে Google Sheet পরীক্ষা করুন।",
-  failed: "তথ্য জমা দেওয়া যায়নি। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
-};
 
 function showMessage(text, success) {
   message.textContent = text;
@@ -457,56 +563,27 @@ window.addEventListener("message", function(event) {
 
   const result = event.data.result;
 
-  if (result && result.success === true) {
-    showMessage(MESSAGES.success, true);
+  if (result && result.success) {
+    showMessage(result.message, true);
     form.reset();
-    return;
+  } else {
+    showMessage(
+      result && result.message
+        ? result.message
+        : "তথ্য জমা দেওয়া যায়নি। আবার চেষ্টা করুন।",
+      false
+    );
   }
-
-  const serverMessage = result && result.message
-    ? result.message
-    : MESSAGES.failed;
-
-  showMessage(serverMessage, false);
 });
 
 form.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  if (waiting) return;
-
-  const requiredFields = [
-    "name", "fatherName", "houseName", "phone"
-  ];
-
-  const incomplete = requiredFields.some(function(id) {
-    const field = document.getElementById(id);
-    return !field.value.trim();
-  });
-
-  if (incomplete) {
-    showMessage(MESSAGES.incomplete, false);
-    return;
-  }
-
-  const phone = document.getElementById("phone");
-
-  if (!/^[0-9]{6,15}$/.test(phone.value.trim())) {
-    showMessage("ফোন নম্বরটি সঠিকভাবে ইংরেজি সংখ্যায় লিখুন।", false);
-    phone.focus();
-    return;
-  }
+  if (waiting || !form.reportValidity()) return;
 
   const data = Object.fromEntries(
     new FormData(form).entries()
   );
-
-  ["name", "fatherName", "houseName", "phone",
-   "occupation", "remark"].forEach(function(key) {
-    if (data[key] !== undefined) {
-      data[key] = data[key].trim();
-    }
-  });
 
   const oldPayload = form.querySelector('[name="payload"]');
   if (oldPayload) oldPayload.remove();
@@ -515,6 +592,7 @@ form.addEventListener("submit", function(event) {
   payload.type = "hidden";
   payload.name = "payload";
   payload.value = JSON.stringify(data);
+
   form.appendChild(payload);
 
   form.action = SCRIPT_URL;
@@ -526,15 +604,20 @@ form.addEventListener("submit", function(event) {
   button.textContent = "জমা হচ্ছে...";
   message.style.display = "none";
 
+  form.submit();
+
   timeoutId = setTimeout(function() {
     if (!waiting) return;
 
     finishRequest();
-    showMessage(MESSAGES.timeout, false);
-  }, 30000);
 
-  form.submit();
+    showMessage(
+      "সার্ভার থেকে উত্তর পাওয়া যায়নি। Google Sheet পরীক্ষা করে আবার চেষ্টা করুন।",
+      false
+    );
+  }, 30000);
 });
 </script>
+
 </body>
 </html>
