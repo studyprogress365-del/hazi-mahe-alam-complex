@@ -1,103 +1,760 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#14532d">
-  <title>তথ্য সংগ্রহ ফর্ম | Hazi Mahe Alam Complex</title>
-  <style>
-    *{box-sizing:border-box}
-    body{margin:0;padding:28px 14px;background:#f3f7f4;color:#17251c;font-family:system-ui,-apple-system,"Noto Sans Bengali","Nirmala UI",sans-serif}
-    .wrap{max-width:620px;margin:auto}
-    .brand{text-align:center;margin-bottom:18px}
-    .brand h1{font-size:clamp(23px,5vw,31px);margin:0 0 6px;color:#14532d}
-    .brand p{margin:0;color:#587064}
-    .card{background:#fff;border:1px solid #e1eae3;border-radius:18px;padding:25px;box-shadow:0 10px 30px rgba(20,83,45,.07)}
-    h2{margin:0 0 5px;font-size:23px}
-    .sub{margin:0 0 22px;color:#68796f}
-    label{display:block;font-weight:650;margin:16px 0 7px}
-    .req{color:#c62828}
-    input,textarea{width:100%;border:1px solid #cbd8ce;border-radius:10px;padding:12px 13px;font:inherit;font-size:16px;background:#fff}
-    input:focus,textarea:focus{outline:3px solid #d7f0df;border-color:#27834b}
-    textarea{min-height:90px;resize:vertical}
-    button{width:100%;margin-top:22px;border:0;border-radius:11px;padding:14px;background:#166534;color:#fff;font:inherit;font-size:17px;font-weight:700;cursor:pointer}
-    button:disabled{opacity:.65;cursor:wait}
-    #message{display:none;margin-top:16px;padding:12px;border-radius:10px;line-height:1.6}
-    #message.ok{display:block;background:#e8f5ec;color:#14532d}
-    #message.err{display:block;background:#fff0f0;color:#a11b1b}
-    .note{font-size:13px;color:#718078;text-align:center;margin:17px 0 0}
-    @media(max-width:480px){body{padding:18px 10px}.card{padding:19px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>HAZI MAHE ALAM COMPLEX | Information Form</title>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.5/build/css/intlTelInput.css">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 18px 12px;
+  font-family: Arial, sans-serif;
+  background: #eef3ed;
+  color: #24352b;
+}
+
+.container {
+  max-width: 510px;
+  margin: auto;
+  background: white;
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px #00000012;
+}
+
+.header {
+  background: linear-gradient(135deg, #075b3d, #0c7950);
+  color: white;
+  text-align: center;
+  padding: 19px 15px;
+}
+
+.mosque {
+  width: 82px;
+  height: 76px;
+}
+
+.english-title {
+  font-size: 19px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  margin: 5px;
+}
+
+.bangla-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin: 7px;
+}
+
+.address {
+  font-size: 12px;
+  line-height: 1.7;
+  color: #e5f5eb;
+}
+
+.form-area {
+  padding: 17px 20px 20px;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+h2 {
+  margin: 0;
+  font-size: 19px;
+  color: #075b3d;
+}
+
+.language {
+  border: 1px solid #0b7950;
+  color: #075b3d;
+  background: white;
+  padding: 6px 11px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.subtitle {
+  color: #777;
+  font-size: 12px;
+  margin: -7px 0 16px;
+}
+
+.field {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.required {
+  color: #d32f2f;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid #d5ded7;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+  background: #fcfdfc;
+}
+
+input:focus,
+textarea:focus {
+  border-color: #0b7950;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 65px;
+}
+
+.iti {
+  width: 100%;
+}
+
+.submit-btn {
+  width: 100%;
+  border: none;
+  background: #087449;
+  color: white;
+  padding: 13px;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 5px;
+  transition: .2s;
+}
+
+.submit-btn:hover {
+  background: #065d3b;
+}
+
+.submit-btn:disabled {
+  opacity: .65;
+  cursor: not-allowed;
+}
+
+/* SUCCESS AND ERROR MESSAGE */
+
+.message {
+  display: none;
+  padding: 14px;
+  margin-top: 14px;
+  border-radius: 9px;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+  font-weight: 600;
+}
+
+.success {
+  display: block;
+  background: #e5f5eb;
+  color: #12633d;
+  border: 1px solid #b8e2c7;
+}
+
+.error {
+  display: block;
+  background: #ffebee;
+  color: #b71c1c;
+  border: 1px solid #ffcdd2;
+}
+
+.footer {
+  text-align: center;
+  color: #888;
+  font-size: 11px;
+  padding: 0 10px 15px;
+}
+
+@media(max-width:380px) {
+  .form-area {
+    padding: 15px;
+  }
+
+  .bangla-title {
+    font-size: 20px;
+  }
+
+  .english-title {
+    font-size: 17px;
+  }
+}
+</style>
 </head>
+
 <body>
-  <main class="wrap">
-    <header class="brand">
-      <h1>Hazi Mahe Alam Complex</h1>
-      <p>Azad Nagar Bazar, Ramgoti, Laxmipur</p>
-    </header>
-    <section class="card">
-      <h2>তথ্য সংগ্রহ ফর্ম</h2>
-      <p class="sub">ব্যক্তিগত তথ্য প্রদান করুন</p>
-      <form id="infoForm">
-        <label for="name">নাম <span class="req">*</span></label>
-        <input id="name" name="name" required maxlength="120" autocomplete="name" placeholder="আপনার পূর্ণ নাম">
 
-        <label for="fatherName">পিতার নাম <span class="req">*</span></label>
-        <input id="fatherName" name="fatherName" required maxlength="120" placeholder="পিতার পূর্ণ নাম">
+<div class="container">
 
-        <label for="houseName">বাড়ির নাম <span class="req">*</span></label>
-        <input id="houseName" name="houseName" required maxlength="160" placeholder="বাড়ির নাম">
+  <!-- HEADER -->
 
-        <label for="phone">ফোন নম্বর <span class="req">*</span></label>
-        <input id="phone" name="phone" type="tel" required maxlength="25" inputmode="tel" autocomplete="tel" placeholder="01XXXXXXXXX">
+  <header class="header">
 
-        <label for="occupation">পেশা <span style="font-weight:400;color:#718078">(ঐচ্ছিক)</span></label>
-        <input id="occupation" name="occupation" maxlength="100" placeholder="আপনার পেশা">
+    <svg class="mosque" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#f3d58b">
+        <path d="M60 7V0M54 5Q60 -3 66 5"/>
+        <path d="M20 38V13L15 13L20 5L25 13V38Z"/>
+        <path d="M100 38V13L95 13L100 5L105 13V38Z"/>
+        <path d="M10 40H110V44H10Z"/>
+        <path d="M31 39Q60 -2 89 39Z"/>
+      </g>
 
-        <label for="remark">মন্তব্য <span style="font-weight:400;color:#718078">(ঐচ্ছিক)</span></label>
-        <textarea id="remark" name="remark" maxlength="1000" placeholder="প্রয়োজনে কিছু লিখুন"></textarea>
+      <path d="M18 43H102V93H18Z" fill="#fff3d6"/>
+      <path d="M18 43H102V49H18Z" fill="#d5aa53"/>
+      <path d="M46 93V70Q60 49 74 70V93Z" fill="#087449"/>
 
-        <button id="submitBtn" type="submit">তথ্য জমা দিন</button>
-        <div id="message" role="status" aria-live="polite"></div>
-      </form>
-    </section>
-    <p class="note">(*) চিহ্নিত ঘরগুলো পূরণ করা বাধ্যতামূলক।</p>
+      <g fill="#087449">
+        <path d="M27 61Q35 48 43 61V78H27Z"/>
+        <path d="M77 61Q85 48 93 61V78H77Z"/>
+      </g>
+
+      <path d="M10 93H110V99H10Z" fill="#f3d58b"/>
+    </svg>
+
+    <div class="english-title">HAZI MAHE ALAM COMPLEX</div>
+
+    <div class="bangla-title">হাজী মাহে আলম কমপ্লেক্স</div>
+
+    <div class="address" id="address">
+      পূর্ব চর কোলাকোপা, ৩ নং চর পোড়াগাছা ইউনিয়ন,<br>
+      রামগতি, লক্ষ্মীপুর
+    </div>
+
+  </header>
+
+  <!-- FORM -->
+
+  <main class="form-area">
+
+    <div class="top-row">
+      <h2 id="formTitle">তথ্য সংগ্রহ ফর্ম</h2>
+
+      <button
+        class="language"
+        type="button"
+        onclick="toggleLanguage()">
+        English
+      </button>
+    </div>
+
+    <p class="subtitle" id="subtitle">
+      সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন
+    </p>
+
+    <form id="infoForm">
+
+      <!-- NAME -->
+
+      <div class="field">
+        <label id="nameLabel">
+          নাম <span class="required">*</span>
+        </label>
+
+        <input
+          type="text"
+          id="name"
+          required
+          autocomplete="name"
+          placeholder="আপনার পূর্ণ নাম">
+      </div>
+
+      <!-- FATHER NAME -->
+
+      <div class="field">
+        <label id="fatherLabel">
+          পিতার নাম <span class="required">*</span>
+        </label>
+
+        <input
+          type="text"
+          id="fatherName"
+          required
+          placeholder="পিতার পূর্ণ নাম">
+      </div>
+
+      <!-- PHONE -->
+
+      <div class="field">
+        <label id="phoneLabel">
+          ফোন নম্বর <span class="required">*</span>
+        </label>
+
+        <input
+          type="tel"
+          id="phone"
+          required
+          autocomplete="tel">
+      </div>
+
+      <!-- HOUSE NAME -->
+
+      <div class="field">
+        <label id="houseLabel">
+          বাড়ির নাম <span class="required">*</span>
+        </label>
+
+        <input
+          type="text"
+          id="houseName"
+          required
+          placeholder="বাড়ির নাম লিখুন">
+      </div>
+
+      <!-- OCCUPATION -->
+
+      <div class="field">
+        <label id="occupationLabel">
+          পেশা (ঐচ্ছিক)
+        </label>
+
+        <input
+          type="text"
+          id="occupation"
+          placeholder="আপনার পেশা">
+      </div>
+
+      <!-- REMARK -->
+
+      <div class="field">
+        <label id="remarkLabel">
+          মন্তব্য (ঐচ্ছিক)
+        </label>
+
+        <textarea
+          id="remark"
+          placeholder="অতিরিক্ত কোনো তথ্য থাকলে লিখুন"></textarea>
+      </div>
+
+      <!-- SUBMIT -->
+
+      <button
+        type="submit"
+        class="submit-btn"
+        id="submitBtn">
+        তথ্য জমা দিন
+      </button>
+
+      <!-- MESSAGE -->
+
+      <div
+        id="message"
+        class="message"
+        role="status"
+        aria-live="polite">
+      </div>
+
+    </form>
+
   </main>
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWL79UyvARIYSkva5RELFMGBVLKCwRLubmi34IZLyAptAq7J6yDkslryj6hjVCvy6FAg/exec";
-    const form = document.getElementById("infoForm");
-    const button = document.getElementById("submitBtn");
-    const message = document.getElementById("message");
 
-    form.addEventListener("submit", async function (event) {
-      event.preventDefault();
-      if (!form.reportValidity()) return;
+  <div class="footer">
+    HAZI MAHE ALAM COMPLEX
+  </div>
 
-      const data = Object.fromEntries(new FormData(form).entries());
-      button.disabled = true;
-      button.textContent = "জমা হচ্ছে...";
-      message.className = "";
-      message.style.display = "none";
+</div>
 
-      try {
-        // Apps Script cross-origin POST: no-cors response cannot be read by the browser.
-        await fetch(SCRIPT_URL, {
-          method: "POST",
-          mode: "no-cors",
-          headers: {"Content-Type": "text/plain;charset=utf-8"},
-          body: JSON.stringify(data)
+
+<!-- PHONE LIBRARY -->
+
+<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.5/build/js/intlTelInput.min.js"></script>
+
+
+<script>
+
+/* GOOGLE APPS SCRIPT URL */
+
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxqkRL-rX0L1YMnQI3hLo4Bj918UfrKAGW4EgSZAtr2l4G3T9OnWeFDkdpoEwAZZXC7/exec";
+
+
+const form = document.getElementById("infoForm");
+const submitBtn = document.getElementById("submitBtn");
+const messageBox = document.getElementById("message");
+
+
+/* INTERNATIONAL PHONE INPUT */
+
+const iti = window.intlTelInput(
+  document.getElementById("phone"),
+  {
+    initialCountry: "auto",
+    separateDialCode: true,
+    nationalMode: true,
+
+    preferredCountries: [
+      "bd", "sa", "ae", "qa", "kw",
+      "om", "my", "sg", "gb", "us"
+    ],
+
+    geoIpLookup: function(callback) {
+      fetch("https://ipapi.co/json/")
+        .then(response => response.json())
+        .then(data => {
+          callback((data.country_code || "BD").toLowerCase());
+        })
+        .catch(() => {
+          callback("bd");
         });
-        message.textContent = "আপনার তথ্য পাঠানো হয়েছে। অনুগ্রহ করে নিশ্চিত হওয়ার জন্য কর্তৃপক্ষের সঙ্গে যোগাযোগ করুন।";
-        message.className = "ok";
-        form.reset();
-      } catch (error) {
-        message.textContent = "তথ্য পাঠানো যায়নি। ইন্টারনেট সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।";
-        message.className = "err";
-      } finally {
-        button.disabled = false;
-        button.textContent = "তথ্য জমা দিন";
-      }
-    });
-  </script>
+    },
+
+    loadUtils: () => import(
+      "https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.5/build/js/utils.js"
+    )
+  }
+);
+
+
+/* LANGUAGE TEXT */
+
+let currentLanguage = "bn";
+
+const tr = {
+
+  bn: {
+    title: "তথ্য সংগ্রহ ফর্ম",
+    subtitle: "সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন",
+
+    name: "নাম",
+    father: "পিতার নাম",
+    phone: "ফোন নম্বর",
+    house: "বাড়ির নাম",
+    occupation: "পেশা (ঐচ্ছিক)",
+    remark: "মন্তব্য (ঐচ্ছিক)",
+
+    nameP: "আপনার পূর্ণ নাম",
+    fatherP: "পিতার পূর্ণ নাম",
+    houseP: "বাড়ির নাম লিখুন",
+    occupationP: "আপনার পেশা",
+    remarkP: "অতিরিক্ত কোনো তথ্য থাকলে লিখুন",
+
+    submit: "তথ্য জমা দিন",
+    sending: "জমা হচ্ছে...",
+    switch: "English",
+
+    invalidPhone: "সঠিক ফোন নম্বর লিখুন।",
+
+    success:
+      "আলহামদুলিল্লাহ! তথ্য সফলভাবে জমা হয়েছে। আপনার মূল্যবান তথ্য প্রদানের জন্য আন্তরিক ধন্যবাদ।",
+
+    failed:
+      "দুঃখিত! তথ্য জমা দেওয়া যায়নি। আবার চেষ্টা করুন।"
+  },
+
+  en: {
+    title: "Information Collection Form",
+    subtitle: "Please fill in the form with accurate information",
+
+    name: "Name",
+    father: "Father's Name",
+    phone: "Phone Number",
+    house: "House Name",
+    occupation: "Occupation (Optional)",
+    remark: "Remark (Optional)",
+
+    nameP: "Enter your full name",
+    fatherP: "Enter father's full name",
+    houseP: "Enter house name",
+    occupationP: "Your occupation",
+    remarkP: "Any additional information",
+
+    submit: "Submit Information",
+    sending: "Submitting...",
+    switch: "বাংলা",
+
+    invalidPhone: "Please enter a valid phone number.",
+
+    success:
+      "Alhamdulillah! Your information has been submitted successfully. Thank you for providing your valuable information.",
+
+    failed:
+      "Sorry! Your information could not be submitted. Please try again."
+  }
+
+};
+
+
+/* LANGUAGE SWITCH */
+
+function toggleLanguage() {
+
+  currentLanguage =
+    currentLanguage === "bn" ? "en" : "bn";
+
+  const t = tr[currentLanguage];
+
+  const required =
+    ' <span class="required">*</span>';
+
+  document.getElementById("formTitle").textContent =
+    t.title;
+
+  document.getElementById("subtitle").textContent =
+    t.subtitle;
+
+  document.getElementById("nameLabel").innerHTML =
+    t.name + required;
+
+  document.getElementById("fatherLabel").innerHTML =
+    t.father + required;
+
+  document.getElementById("phoneLabel").innerHTML =
+    t.phone + required;
+
+  document.getElementById("houseLabel").innerHTML =
+    t.house + required;
+
+  document.getElementById("occupationLabel").textContent =
+    t.occupation;
+
+  document.getElementById("remarkLabel").textContent =
+    t.remark;
+
+  document.getElementById("name").placeholder =
+    t.nameP;
+
+  document.getElementById("fatherName").placeholder =
+    t.fatherP;
+
+  document.getElementById("houseName").placeholder =
+    t.houseP;
+
+  document.getElementById("occupation").placeholder =
+    t.occupationP;
+
+  document.getElementById("remark").placeholder =
+    t.remarkP;
+
+  document.querySelector(".language").textContent =
+    t.switch;
+
+  if (!submitBtn.disabled) {
+    submitBtn.textContent = t.submit;
+  }
+
+  document.getElementById("address").innerHTML =
+    currentLanguage === "bn"
+
+    ? "পূর্ব চর কোলাকোপা, ৩ নং চর পোড়াগাছা ইউনিয়ন,<br>রামগতি, লক্ষ্মীপুর"
+
+    : "Purba Char Kolakopa, 3 No. Char Poragachha Union,<br>Ramgati, Lakshmipur, Bangladesh";
+
+}
+
+
+/* SUCCESS / ERROR MESSAGE */
+
+function showMessage(text, type) {
+
+  messageBox.textContent = text;
+
+  messageBox.className =
+    "message " + type;
+
+  messageBox.style.display = "block";
+
+}
+
+
+/* JSONP REQUEST */
+
+function sendJSONP(data) {
+
+  return new Promise((resolve, reject) => {
+
+    const callbackName =
+      "formCallback_" + Date.now();
+
+    const script =
+      document.createElement("script");
+
+    const params =
+      new URLSearchParams({
+        ...data,
+        callback: callbackName
+      });
+
+    const timer = setTimeout(() => {
+      cleanup();
+      reject(new Error("Request timed out"));
+    }, 25000);
+
+    function cleanup() {
+
+      clearTimeout(timer);
+
+      delete window[callbackName];
+
+      script.remove();
+
+    }
+
+    window[callbackName] = function(result) {
+
+      cleanup();
+
+      resolve(result);
+
+    };
+
+    script.onerror = function() {
+
+      cleanup();
+
+      reject(new Error("Network error"));
+
+    };
+
+    script.src =
+      SCRIPT_URL + "?" + params.toString();
+
+    document.body.appendChild(script);
+
+  });
+
+}
+
+
+/* FORM SUBMISSION */
+
+form.addEventListener("submit", async function(e) {
+
+  e.preventDefault();
+
+  const t = tr[currentLanguage];
+
+  if (!form.reportValidity()) {
+    return;
+  }
+
+  /* PHONE VALIDATION */
+
+  if (!iti.isValidNumber()) {
+
+    showMessage(
+      t.invalidPhone,
+      "error"
+    );
+
+    return;
+
+  }
+
+
+  /* COLLECT FORM DATA */
+
+  const data = {
+
+    name:
+      document.getElementById("name").value.trim(),
+
+    fatherName:
+      document.getElementById("fatherName").value.trim(),
+
+    phone:
+      iti.getNumber(),
+
+    houseName:
+      document.getElementById("houseName").value.trim(),
+
+    occupation:
+      document.getElementById("occupation").value.trim(),
+
+    remark:
+      document.getElementById("remark").value.trim()
+
+  };
+
+
+  /* LOADING */
+
+  submitBtn.disabled = true;
+
+  submitBtn.textContent = t.sending;
+
+  messageBox.style.display = "none";
+
+
+  try {
+
+    /* SEND TO GOOGLE SHEETS */
+
+    const result =
+      await sendJSONP(data);
+
+
+    /* ERROR RESPONSE */
+
+    if (!result.success) {
+
+      showMessage(
+        result.message || t.failed,
+        "error"
+      );
+
+      return;
+
+    }
+
+
+    /* SUCCESS RESPONSE */
+
+    showMessage(
+      t.success,
+      "success"
+    );
+
+
+    /* RESET FORM */
+
+    form.reset();
+
+    iti.setCountry("bd");
+
+
+  } catch (error) {
+
+    showMessage(
+      t.failed,
+      "error"
+    );
+
+  } finally {
+
+    submitBtn.disabled = false;
+
+    submitBtn.textContent =
+      tr[currentLanguage].submit;
+
+  }
+
+});
+
+</script>
+
 </body>
 </html>
