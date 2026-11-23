@@ -4,8 +4,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <title>HAZI MAHE ALAM COMPLEX | Information Form</title>
 
+<!-- GOOGLE FONT -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- INTERNATIONAL PHONE INPUT -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.5/build/css/intlTelInput.css">
 
 <style>
@@ -15,136 +22,171 @@
 
 body {
   margin: 0;
-  padding: 18px 12px;
-  font-family: Arial, sans-serif;
+  padding: 10px;
+  font-family: 'Hind Siliguri', sans-serif;
   background: #eef3ed;
   color: #24352b;
 }
 
 .container {
-  max-width: 510px;
+  max-width: 480px;
   margin: auto;
-  background: white;
-  border-radius: 17px;
+  background: #fff;
+  border-radius: 14px;
   overflow: hidden;
-  box-shadow: 0 5px 25px #00000012;
+  box-shadow: 0 4px 18px #00000012;
 }
+
+/* HEADER */
 
 .header {
   background: linear-gradient(135deg, #075b3d, #0c7950);
   color: white;
   text-align: center;
-  padding: 19px 15px;
+  padding: 10px 12px 12px;
 }
 
 .mosque {
-  width: 82px;
-  height: 76px;
+  width: 58px;
+  height: 53px;
 }
 
 .english-title {
-  font-size: 19px;
+  font-family: Arial, sans-serif;
+  font-size: 17px;
   font-weight: 800;
-  letter-spacing: 1px;
-  margin: 5px;
+  letter-spacing: .7px;
+  margin: 3px 0;
 }
 
 .bangla-title {
-  font-size: 22px;
-  font-weight: bold;
-  margin: 7px;
+  font-size: 21px;
+  font-weight: 700;
+  margin: 3px 0;
 }
 
 .address {
   font-size: 12px;
-  line-height: 1.7;
+  line-height: 1.5;
   color: #e5f5eb;
 }
 
+/* FORM AREA */
+
 .form-area {
-  padding: 17px 20px 20px;
+  padding: 13px 16px 15px;
 }
 
 .top-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 h2 {
   margin: 0;
   font-size: 19px;
+  font-weight: 700;
   color: #075b3d;
 }
 
 .language {
+  font-family: 'Hind Siliguri', sans-serif;
   border: 1px solid #0b7950;
   color: #075b3d;
   background: white;
-  padding: 6px 11px;
+  padding: 3px 11px;
   border-radius: 20px;
   cursor: pointer;
-  font-weight: bold;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .subtitle {
   color: #777;
   font-size: 12px;
-  margin: -7px 0 16px;
+  margin: 0 0 10px;
 }
 
 .field {
-  margin-bottom: 12px;
+  margin-bottom: 9px;
 }
 
 label {
   display: block;
   font-size: 13px;
-  font-weight: bold;
-  margin-bottom: 5px;
+  font-weight: 600;
+  margin-bottom: 3px;
 }
 
 .required {
   color: #d32f2f;
 }
 
+/* INPUTS */
+
 input,
 textarea {
   width: 100%;
-  padding: 11px 12px;
+  padding: 8px 11px;
   border: 1px solid #d5ded7;
-  border-radius: 8px;
+  border-radius: 7px;
   outline: none;
+  font-family: 'Hind Siliguri', sans-serif;
   font-size: 14px;
+  font-weight: 400;
   background: #fcfdfc;
+  color: #24352b;
 }
 
 input:focus,
 textarea:focus {
   border-color: #0b7950;
+  box-shadow: 0 0 0 2px #0b795018;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #a0aaa3;
 }
 
 textarea {
   resize: vertical;
-  min-height: 65px;
+  min-height: 55px;
+  max-height: 100px;
 }
+
+/* PHONE */
 
 .iti {
   width: 100%;
 }
+
+.iti input {
+  padding-left: 95px !important;
+}
+
+.iti__country-list,
+.iti__search-input {
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 13px;
+}
+
+/* SUBMIT BUTTON */
 
 .submit-btn {
   width: 100%;
   border: none;
   background: #087449;
   color: white;
-  padding: 13px;
-  border-radius: 9px;
+  padding: 9px;
+  border-radius: 8px;
+  font-family: 'Hind Siliguri', sans-serif;
   font-size: 15px;
-  font-weight: bold;
+  font-weight: 700;
   cursor: pointer;
-  margin-top: 5px;
+  margin-top: 2px;
   transition: .2s;
 }
 
@@ -157,16 +199,17 @@ textarea {
   cursor: not-allowed;
 }
 
-/* SUCCESS AND ERROR MESSAGE */
+/* SUCCESS / ERROR */
 
 .message {
   display: none;
-  padding: 14px;
-  margin-top: 14px;
-  border-radius: 9px;
+  padding: 9px;
+  margin-top: 9px;
+  border-radius: 8px;
   text-align: center;
-  font-size: 14px;
-  line-height: 1.7;
+  font-family: 'Hind Siliguri', sans-serif;
+  font-size: 13px;
+  line-height: 1.6;
   font-weight: 600;
 }
 
@@ -184,24 +227,37 @@ textarea {
   border: 1px solid #ffcdd2;
 }
 
+/* FOOTER */
+
 .footer {
   text-align: center;
   color: #888;
-  font-size: 11px;
-  padding: 0 10px 15px;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  padding: 0 8px 9px;
 }
 
+/* SMALL MOBILE */
+
 @media(max-width:380px) {
+  body {
+    padding: 7px;
+  }
+
   .form-area {
-    padding: 15px;
+    padding: 11px 13px 13px;
   }
 
   .bangla-title {
-    font-size: 20px;
+    font-size: 19px;
   }
 
   .english-title {
-    font-size: 17px;
+    font-size: 15px;
+  }
+
+  .field {
+    margin-bottom: 8px;
   }
 }
 </style>
@@ -247,6 +303,7 @@ textarea {
 
   </header>
 
+
   <!-- FORM -->
 
   <main class="form-area">
@@ -254,10 +311,7 @@ textarea {
     <div class="top-row">
       <h2 id="formTitle">তথ্য সংগ্রহ ফর্ম</h2>
 
-      <button
-        class="language"
-        type="button"
-        onclick="toggleLanguage()">
+      <button class="language" type="button" onclick="toggleLanguage()">
         English
       </button>
     </div>
@@ -269,7 +323,6 @@ textarea {
     <form id="infoForm">
 
       <!-- NAME -->
-
       <div class="field">
         <label id="nameLabel">
           নাম <span class="required">*</span>
@@ -284,7 +337,6 @@ textarea {
       </div>
 
       <!-- FATHER NAME -->
-
       <div class="field">
         <label id="fatherLabel">
           পিতার নাম <span class="required">*</span>
@@ -298,7 +350,6 @@ textarea {
       </div>
 
       <!-- PHONE -->
-
       <div class="field">
         <label id="phoneLabel">
           ফোন নম্বর <span class="required">*</span>
@@ -312,7 +363,6 @@ textarea {
       </div>
 
       <!-- HOUSE NAME -->
-
       <div class="field">
         <label id="houseLabel">
           বাড়ির নাম <span class="required">*</span>
@@ -326,7 +376,6 @@ textarea {
       </div>
 
       <!-- OCCUPATION -->
-
       <div class="field">
         <label id="occupationLabel">
           পেশা (ঐচ্ছিক)
@@ -339,7 +388,6 @@ textarea {
       </div>
 
       <!-- REMARK -->
-
       <div class="field">
         <label id="remarkLabel">
           মন্তব্য (ঐচ্ছিক)
@@ -351,16 +399,11 @@ textarea {
       </div>
 
       <!-- SUBMIT -->
-
-      <button
-        type="submit"
-        class="submit-btn"
-        id="submitBtn">
+      <button type="submit" class="submit-btn" id="submitBtn">
         তথ্য জমা দিন
       </button>
 
       <!-- MESSAGE -->
-
       <div
         id="message"
         class="message"
@@ -382,7 +425,6 @@ textarea {
 <!-- PHONE LIBRARY -->
 
 <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@25.10.5/build/js/intlTelInput.min.js"></script>
-
 
 <script>
 
@@ -700,8 +742,6 @@ form.addEventListener("submit", async function(e) {
 
 
   try {
-
-    /* SEND TO GOOGLE SHEETS */
 
     const result =
       await sendJSONP(data);
