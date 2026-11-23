@@ -1,141 +1,540 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#14532d">
-  <title>তথ্য সংগ্রহ ফর্ম | হাজী মাহে আলম কমপ্লেক্স</title>
-  <style>
-    :root{--ink:#17243a;--muted:#66758a;--gold:#c89b48;--cream:#fbf8f1;--line:#e8e1d4;--green:#174b3a}
-    *{box-sizing:border-box}
-    body{margin:0;min-height:100vh;padding:34px 15px;background:radial-gradient(ellipse at 10% 5%,#e6eee7 0,transparent 34%),linear-gradient(135deg,#f7f4ec,#eef2ef);color:var(--ink);font-family:system-ui,-apple-system,"Noto Sans Bengali","Nirmala UI",sans-serif}
-    .wrap{max-width:690px;margin:0 auto}
-    .brand{position:relative;overflow:hidden;text-align:center;padding:34px 26px 31px;border-radius:24px 24px 8px 8px;background:linear-gradient(135deg,#153c34,#1c5944 62%,#24483d);color:#fff;box-shadow:0 18px 45px #173d3326}
-    .brand:before,.brand:after{content:"";position:absolute;border:1px solid #d5b46a55;border-radius:50%;width:220px;height:220px;pointer-events:none}
-    .brand:before{left:-115px;top:-140px}.brand:after{right:-115px;bottom:-155px}
-    .seal{width:54px;height:54px;margin:0 auto 13px;border:1px solid #d9bd7b;border-radius:50%;display:grid;place-items:center;color:#f1d99e;font-size:24px}
-    .brand h1{position:relative;margin:0 0 10px;font-size:clamp(24px,5vw,34px);font-weight:800;letter-spacing:.1px}
-    .brand p{position:relative;margin:0 auto;max-width:520px;color:#e4eadf;font-size:14px;line-height:1.8}
-    .brand .eyebrow{font-size:11px;letter-spacing:2.5px;text-transform:uppercase;color:#e5c986;margin-bottom:9px}
-    .card{position:relative;margin-top:14px;padding:clamp(22px,5vw,36px);background:#fffdf9;border:1px solid var(--line);border-radius:9px 9px 24px 24px;box-shadow:0 16px 45px #26382c12}
-    .cardhead{display:flex;align-items:center;gap:14px;margin-bottom:25px;padding-bottom:19px;border-bottom:1px solid var(--line)}
-    .cardicon{width:46px;height:46px;flex:none;border-radius:13px;background:#f4ead5;color:#916c2e;display:grid;place-items:center;font-size:22px}
-    h2{margin:0 0 4px;font-size:23px;color:var(--green)}
-    .sub{margin:0;color:var(--muted);font-size:14px}
-    .grid{display:grid;grid-template-columns:1fr 1fr;gap:0 17px}
-    .field{min-width:0}
-    label{display:block;font-weight:700;font-size:14px;margin:14px 0 8px;color:#344357}
-    .req{color:#b7443d;margin-left:3px}
-    input,textarea{display:block;width:100%;border:1px solid #d9ded8;border-radius:11px;padding:13px 14px;font:inherit;font-size:15px;background:#fff;color:var(--ink);transition:border-color .2s,box-shadow .2s}
-    input::placeholder,textarea::placeholder{color:#a0a9a4}
-    input:focus,textarea:focus{outline:none;border-color:#49836c;box-shadow:0 0 0 4px #49836c19}
-    textarea{min-height:104px;resize:vertical}
-    .hint{margin:7px 1px 0;color:#7b887f;font-size:12px;line-height:1.6}
-    button{width:100%;margin-top:25px;border:0;border-radius:12px;padding:15px 18px;background:linear-gradient(100deg,#174b3a,#28694d);color:#fff;font:inherit;font-size:16px;font-weight:750;letter-spacing:.2px;cursor:pointer;box-shadow:0 8px 18px #174b3a25;transition:transform .15s,filter .15s}
-    button:hover{filter:brightness(1.08);transform:translateY(-1px)}
-    button:disabled{opacity:.65;cursor:wait;transform:none}
-    #message{display:none;margin-top:17px;padding:14px 15px;border-radius:11px;line-height:1.7;font-size:14px}
-    #message.ok{display:block;background:#eaf5ed;color:#175b37;border:1px solid #cfe6d5}
-    #message.err{display:block;background:#fff0ed;color:#a12e27;border:1px solid #f1d0ca}
-    .note{font-size:12px;color:#7c887f;text-align:center;margin:17px 0 0}
-    .footerline{text-align:center;color:#849087;font-size:11px;margin:20px 0 0;letter-spacing:.3px}
-    @media(max-width:540px){body{padding:17px 10px}.brand{padding:28px 18px 25px;border-radius:19px 19px 7px 7px}.brand p{font-size:13px}.grid{grid-template-columns:1fr}.card{padding:21px 18px}.cardhead{margin-bottom:17px}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#102c25">
+<title>তথ্য সংগ্রহ | হাজী মাহে আলম কমপ্লেক্স</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --green: #123d30;
+  --green2: #1b5943;
+  --gold: #d8b46b;
+  --ink: #1b2b25;
+  --muted: #78877e;
+  --border: #e4e9e3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 38px 16px;
+  font-family: "Hind Siliguri", sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(circle at 10% 10%, #dce9df 0, transparent 30%),
+    radial-gradient(circle at 90% 90%, #e9e2d1 0, transparent 28%),
+    #f3f5f1;
+}
+
+.container {
+  width: 100%;
+  max-width: 760px;
+  margin: auto;
+}
+
+.header {
+  position: relative;
+  overflow: hidden;
+  padding: 42px 25px 38px;
+  text-align: center;
+  color: white;
+  border-radius: 26px 26px 8px 8px;
+  background: linear-gradient(135deg, #102c25, #1b5943);
+  box-shadow: 0 18px 45px #123d3025;
+}
+
+.header::before,
+.header::after {
+  content: "";
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  border: 1px solid #d8b46b35;
+  border-radius: 50%;
+}
+
+.header::before { top: -145px; left: -100px; }
+.header::after { right: -110px; bottom: -155px; }
+
+.logo {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 65px;
+  height: 65px;
+  margin: 0 auto 15px;
+  border: 1px solid var(--gold);
+  border-radius: 50%;
+  color: var(--gold);
+  font-size: 30px;
+}
+
+.brand-name {
+  position: relative;
+  color: var(--gold);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 8px;
+}
+
+.header h1 {
+  position: relative;
+  margin: 0;
+  font-size: clamp(25px, 5vw, 36px);
+  font-weight: 700;
+}
+
+.header p {
+  position: relative;
+  margin: 12px 0 0;
+  color: #e0e9e2;
+  font-size: 14px;
+  line-height: 1.9;
+}
+
+.form-card {
+  margin-top: 15px;
+  padding: 35px;
+  background: white;
+  border: 1px solid #e7e9e3;
+  border-radius: 9px 9px 26px 26px;
+  box-shadow: 0 18px 50px #203c2d0d;
+}
+
+.form-heading {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding-bottom: 23px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #edf0eb;
+}
+
+.heading-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 15px;
+  background: #edf5ef;
+  color: var(--green);
+  font-size: 25px;
+}
+
+.form-heading h2 {
+  margin: 0;
+  color: var(--green);
+  font-size: 25px;
+}
+
+.form-heading p {
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.field {
+  min-width: 0;
+  margin-bottom: 17px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+  color: #34483c;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.required { color: #d34b45; }
+
+.optional {
+  color: #89958d;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 14px 15px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  outline: none;
+  background: #fbfcfa;
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 15px;
+  transition: .25s;
+}
+
+input::placeholder, textarea::placeholder { color: #aab3ac; }
+
+input:focus, textarea:focus {
+  border-color: #47866a;
+  background: white;
+  box-shadow: 0 0 0 4px #47866a15;
+}
+
+textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+.hint {
+  margin: 6px 0 0;
+  color: #87938a;
+  font-size: 12px;
+}
+
+.submit-btn {
+  width: 100%;
+  margin-top: 10px;
+  padding: 16px;
+  border: none;
+  border-radius: 13px;
+  background: linear-gradient(110deg, #123d30, #26704f);
+  color: white;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 9px 20px #123d3025;
+  transition: .25s;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 13px 25px #123d3035;
+}
+
+.submit-btn:disabled {
+  opacity: .65;
+  cursor: wait;
+  transform: none;
+}
+
+#message {
+  display: none;
+  margin-top: 17px;
+  padding: 13px 15px;
+  border-radius: 11px;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+#message.ok {
+  display: block;
+  color: #17633a;
+  background: #eaf6ed;
+  border: 1px solid #cce8d2;
+}
+
+#message.err {
+  display: block;
+  color: #a22e28;
+  background: #fff0ed;
+  border: 1px solid #f1d0ca;
+}
+
+.privacy {
+  margin: 17px 0 0;
+  text-align: center;
+  color: #87938a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  color: #89948c;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+@media (max-width: 600px) {
+  body { padding: 17px 10px; }
+
+  .header {
+    padding: 30px 17px;
+    border-radius: 20px 20px 7px 7px;
+  }
+
+  .logo {
+    width: 56px;
+    height: 56px;
+    font-size: 25px;
+  }
+
+  .brand-name {
+    font-size: 10px;
+    letter-spacing: 2px;
+  }
+
+  .header p { font-size: 13px; }
+
+  .form-card {
+    padding: 23px 18px;
+    border-radius: 8px 8px 21px 21px;
+  }
+
+  .form-heading { gap: 12px; }
+  .form-heading h2 { font-size: 22px; }
+
+  .heading-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .field { margin-bottom: 15px; }
+  input, textarea { padding: 13px; }
+}
+
+@media (max-width: 350px) {
+  .form-card { padding: 19px 13px; }
+  .header h1 { font-size: 23px; }
+}
+</style>
 </head>
+
 <body>
-  <main class="wrap">
-    <header class="brand">
-      <div class="seal">✦</div>
-      <div class="eyebrow">HAZI MAHE ALAM COMPLEX</div>
-      <h1>হাজী মাহে আলম কমপ্লেক্স</h1>
-      <p>পূর্ব চর কোলাকোপা, ৩ নং চর পোড়াগাছা ইউনিয়ন,<br>রামগতি, লক্ষ্মীপুর</p>
-    </header>
-    <section class="card">
-      <div class="cardhead">
-        <div class="cardicon">✎</div>
-        <div>
-          <h2>তথ্য সংগ্রহ ফর্ম</h2>
-          <p class="sub">সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন</p>
+<main class="container">
+
+  <header class="header">
+    <div class="logo">✦</div>
+    <div class="brand-name">HAZI MAHE ALAM COMPLEX</div>
+    <h1>হাজী মাহে আলম কমপ্লেক্স</h1>
+    <p>
+      পূর্ব চর কোলাকোপা, ৩ নং চর পোড়াগাছা ইউনিয়ন,<br>
+      রামগতি, লক্ষ্মীপুর
+    </p>
+  </header>
+
+  <section class="form-card">
+    <div class="form-heading">
+      <div class="heading-icon">✎</div>
+      <div>
+        <h2>তথ্য সংগ্রহ ফর্ম</h2>
+        <p>সঠিক তথ্য দিয়ে ফর্মটি পূরণ করুন</p>
+      </div>
+    </div>
+
+    <form id="infoForm" novalidate>
+      <div class="grid">
+
+        <div class="field">
+          <label for="name">নাম <span class="required">*</span></label>
+          <input type="text" id="name" name="name"
+            required maxlength="120" autocomplete="name"
+            placeholder="আপনার পূর্ণ নাম">
+        </div>
+
+        <div class="field">
+          <label for="fatherName">পিতার নাম <span class="required">*</span></label>
+          <input type="text" id="fatherName" name="fatherName"
+            required maxlength="120"
+            placeholder="পিতার পূর্ণ নাম">
+        </div>
+
+        <div class="field">
+          <label for="houseName">বাড়ির নাম <span class="required">*</span></label>
+          <input type="text" id="houseName" name="houseName"
+            required maxlength="160"
+            placeholder="আপনার বাড়ির নাম">
+        </div>
+
+        <div class="field">
+          <label for="phone">ফোন নম্বর <span class="required">*</span></label>
+          <input type="tel" id="phone" name="phone"
+            required maxlength="15" inputmode="numeric"
+            pattern="[0-9]{6,15}" autocomplete="tel-national"
+            placeholder="ইংরেজি সংখ্যায় লিখুন">
+          <p class="hint">শুধু ইংরেজি সংখ্যা ব্যবহার করুন।</p>
         </div>
       </div>
-      <form id="infoForm">
-        <div class="grid">
-        <div class="field"><label for="name">নাম <span class="req">*</span></label>
-        <input id="name" name="name" required maxlength="120" autocomplete="name" placeholder="আপনার পূর্ণ নাম"></div>
 
-        <div class="field"><label for="fatherName">পিতার নাম <span class="req">*</span></label>
-        <input id="fatherName" name="fatherName" required maxlength="120" placeholder="পিতার পূর্ণ নাম"></div>
+      <div class="field">
+        <label for="occupation">পেশা <span class="optional">(ঐচ্ছিক)</span></label>
+        <input type="text" id="occupation" name="occupation"
+          maxlength="100" placeholder="আপনার পেশা">
+      </div>
 
-        <div class="field"><label for="houseName">বাড়ির নাম <span class="req">*</span></label>
-        <input id="houseName" name="houseName" required maxlength="160" placeholder="বাড়ির নাম"></div>
+      <div class="field">
+        <label for="remark">মন্তব্য <span class="optional">(ঐচ্ছিক)</span></label>
+        <textarea id="remark" name="remark" maxlength="1000"
+          placeholder="প্রয়োজনে অতিরিক্ত তথ্য লিখুন"></textarea>
+      </div>
 
-        <div class="field"><label for="phone">ফোন নম্বর <span class="req">*</span></label>
-        <input id="phone" name="phone" type="tel" required maxlength="15" inputmode="numeric" pattern="[0-9]{6,15}" autocomplete="tel-national" placeholder="ইংরেজি সংখ্যায় ফোন নম্বর লিখুন">
-        <p class="hint">দেশের কান্ট্রি কোড স্বয়ংক্রিয়ভাবে যুক্ত হবে।</p></div>
-        </div>
+      <button class="submit-btn" id="submitBtn" type="submit">
+        তথ্য জমা দিন
+      </button>
 
-        <div class="field"><label for="occupation">পেশা <span style="font-weight:400;color:#718078">(ঐচ্ছিক)</span></label>
-        <input id="occupation" name="occupation" maxlength="100" placeholder="আপনার পেশা"></div>
+      <div id="message" role="status" aria-live="polite"></div>
+    </form>
+  </section>
 
-        <div class="field"><label for="remark">মন্তব্য <span style="font-weight:400;color:#718078">(ঐচ্ছিক)</span></label>
-        <textarea id="remark" name="remark" maxlength="1000" placeholder="প্রয়োজনে কিছু লিখুন"></textarea></div>
+  <p class="privacy">
+    (*) চিহ্নিত ঘরগুলো পূরণ করা বাধ্যতামূলক।<br>
+    আপনার তথ্য গোপনীয়তার সঙ্গে সংরক্ষণ করা হবে।
+  </p>
 
-        <button id="submitBtn" type="submit">তথ্য জমা দিন</button>
-        <div id="message" role="status" aria-live="polite"></div>
-      </form>
-    </section>
-    <p class="note">(*) চিহ্নিত ঘরগুলো পূরণ করা বাধ্যতামূলক। আপনার তথ্য গোপনীয়তার সঙ্গে সংরক্ষণ করা হবে।</p>
-    <p class="footerline">HAZI MAHE ALAM COMPLEX · INFORMATION FORM</p>
-  </main>
-  <iframe name="submitFrame" id="submitFrame" title="ফর্ম জমা" style="display:none"></iframe>
-  <script>
-    const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxWL79UyvARIYSkva5RELFMGBVLKCwRLubmi34IZLyAptAq7J6yDkslryj6hjVCvy6FAg/exec";
-    const form = document.getElementById("infoForm");
-    const button = document.getElementById("submitBtn") || form.querySelector("button");
-    const message = document.getElementById("message");
-    let waiting = false;
+  <footer class="footer">
+    HAZI MAHE ALAM COMPLEX · INFORMATION FORM
+  </footer>
+</main>
 
-    window.addEventListener("message", function(event) {
-      if (event.source !== document.getElementById("submitFrame").contentWindow) return;
-      if (!event.data || event.data.type !== "complex-form-result") return;
-      waiting = false;
-      button.disabled = false;
-      button.textContent = "তথ্য জমা দিন";
-      message.textContent = event.data.result.message;
-      message.className = event.data.result.success ? "ok" : "err";
-      message.style.display = "block";
-      if (event.data.result.success) form.reset();
-    });
+<iframe name="submitFrame" id="submitFrame"
+  title="ফর্ম জমা" style="display:none"></iframe>
 
-    form.addEventListener("submit", function(event) {
-      event.preventDefault();
-      if (!form.reportValidity() || waiting) return;
-      const data = Object.fromEntries(new FormData(form).entries());
-      const oldPayload = form.querySelector('[name="payload"]');
-      if (oldPayload) oldPayload.remove();
-      const payload = document.createElement("input");
-      payload.type = "hidden";
-      payload.name = "payload";
-      payload.value = JSON.stringify(data);
-      form.appendChild(payload);
-      form.action = SCRIPT_URL;
-      form.method = "POST";
-      form.target = "submitFrame";
-      waiting = true;
-      button.disabled = true;
-      button.textContent = "জমা হচ্ছে...";
-      message.style.display = "none";
-      form.submit();
-      setTimeout(function() {
-        if (!waiting) return;
-        waiting = false;
-        button.disabled = false;
-        button.textContent = "তথ্য জমা দিন";
-        message.textContent = "সার্ভারের উত্তর পাওয়া যায়নি। পরে Google Sheet পরীক্ষা করুন।";
-        message.className = "err";
-        message.style.display = "block";
-      }, 20000);
-    });
-  </script>
+<script>
+const SCRIPT_URL =
+"https://script.google.com/macros/s/AKfycbxWL79UyvARIYSkva5RELFMGBVLKCwRLubmi34IZLyAptAq7J6yDkslryj6hjVCvy6FAg/exec";
+
+const form = document.getElementById("infoForm");
+const button = document.getElementById("submitBtn");
+const message = document.getElementById("message");
+const iframe = document.getElementById("submitFrame");
+
+let waiting = false;
+let timeoutId = null;
+
+const MESSAGES = {
+  success: "✓ আপনার তথ্য সফলভাবে জমা হয়েছে। ধন্যবাদ।",
+  duplicate: "এই নাম ও পিতার নাম দিয়ে ইতোমধ্যে তথ্য জমা দেওয়া হয়েছে।",
+  incomplete: "অনুগ্রহ করে প্রয়োজনীয় সব ঘর সঠিকভাবে পূরণ করুন।",
+  timeout: "সার্ভার থেকে নিশ্চিত উত্তর পাওয়া যায়নি। পুনরায় জমা দেওয়ার আগে Google Sheet পরীক্ষা করুন।",
+  failed: "তথ্য জমা দেওয়া যায়নি। অনুগ্রহ করে কিছুক্ষণ পর আবার চেষ্টা করুন।"
+};
+
+function showMessage(text, success) {
+  message.textContent = text;
+  message.className = success ? "ok" : "err";
+  message.style.display = "block";
+}
+
+function finishRequest() {
+  waiting = false;
+  button.disabled = false;
+  button.textContent = "তথ্য জমা দিন";
+
+  if (timeoutId) {
+    clearTimeout(timeoutId);
+    timeoutId = null;
+  }
+}
+
+window.addEventListener("message", function(event) {
+  if (event.source !== iframe.contentWindow) return;
+
+  if (!event.data ||
+      event.data.type !== "complex-form-result") return;
+
+  if (!waiting) return;
+
+  finishRequest();
+
+  const result = event.data.result;
+
+  if (result && result.success === true) {
+    showMessage(MESSAGES.success, true);
+    form.reset();
+    return;
+  }
+
+  const serverMessage = result && result.message
+    ? result.message
+    : MESSAGES.failed;
+
+  showMessage(serverMessage, false);
+});
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (waiting) return;
+
+  const requiredFields = [
+    "name", "fatherName", "houseName", "phone"
+  ];
+
+  const incomplete = requiredFields.some(function(id) {
+    const field = document.getElementById(id);
+    return !field.value.trim();
+  });
+
+  if (incomplete) {
+    showMessage(MESSAGES.incomplete, false);
+    return;
+  }
+
+  const phone = document.getElementById("phone");
+
+  if (!/^[0-9]{6,15}$/.test(phone.value.trim())) {
+    showMessage("ফোন নম্বরটি সঠিকভাবে ইংরেজি সংখ্যায় লিখুন।", false);
+    phone.focus();
+    return;
+  }
+
+  const data = Object.fromEntries(
+    new FormData(form).entries()
+  );
+
+  ["name", "fatherName", "houseName", "phone",
+   "occupation", "remark"].forEach(function(key) {
+    if (data[key] !== undefined) {
+      data[key] = data[key].trim();
+    }
+  });
+
+  const oldPayload = form.querySelector('[name="payload"]');
+  if (oldPayload) oldPayload.remove();
+
+  const payload = document.createElement("input");
+  payload.type = "hidden";
+  payload.name = "payload";
+  payload.value = JSON.stringify(data);
+  form.appendChild(payload);
+
+  form.action = SCRIPT_URL;
+  form.method = "POST";
+  form.target = "submitFrame";
+
+  waiting = true;
+  button.disabled = true;
+  button.textContent = "জমা হচ্ছে...";
+  message.style.display = "none";
+
+  timeoutId = setTimeout(function() {
+    if (!waiting) return;
+
+    finishRequest();
+    showMessage(MESSAGES.timeout, false);
+  }, 30000);
+
+  form.submit();
+});
+</script>
 </body>
 </html>
